@@ -7,7 +7,7 @@
     <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-24">
         <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
             <div class="hidden lg:flex">
-                <img class="w-full max-w-md mx-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png" alt="" />
+                <img class="w-full max-w-md mx-auto" src="{{ asset('images/check.png') }}" alt="" />
             </div>
 
             <div class="mt-10 text-center lg:text-left">

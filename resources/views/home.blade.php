@@ -16,10 +16,10 @@
     <div id="dropdown" class="hidden z-10 w-48 text-start p-5 bg-yellow-100 rounded-2xl divide-y divide-gray-100 shadow">
         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
           <li>
-            <a href="#" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Student</a>
+            <a href="{{ route('student') }}" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Student</a>
           </li>
           <li>
-            <a href="#" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Employee</a>
+            <a href="{{ route('employee_form') }}" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Employee</a>
           </li>
         </ul>
     </div>
