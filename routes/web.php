@@ -2,15 +2,14 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\API\SocialAuthController;
-use App\Http\Controllers\Forms\EmployeeFormController;
-use App\Http\Controllers\Forms\StudentFormController;
-use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\StudentRequestController;
+use App\Http\Controllers\EmployeeRequestController;
+use App\Http\Controllers\EmployeeRequestSuccessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,23 +22,31 @@ use App\Http\Controllers\GoogleAuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/home', function () {
+Route::get('/', function(){
     return view('home');
 });
 
-Route::get('/employee', function () {
-    return view('request_forms.employee-form');
-})->name('employee_form');
+
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+//EMAIL VERIFICATION
+Auth::routes(['verify' => true]);
+Route::get('/home', [HomeController::class, 'index'])->middleware('verified')->name('home');
 
 
 
-Route::get('/posts', function () {
-    return view('posts.index');
-});
+//SIGN IN WITH GOOGLE
+Route::get('auth/google',[GoogleAuthController::class, 'redirect'])->name('google.auth');
+Route::get('/auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
+
+
+
 
 Route::get('/about', function(){
     return view('about');
@@ -51,30 +58,16 @@ Route::get('/contact', function(){
 })->name('contact');
 
 
-Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+Route::controller(EmployeeRequestController::class)->group(function(){
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
+    Route::get('forms/employee',[EmployeeRequestController::class, 'index'])->name('employee');
+});
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
-
-
-//EMAIL VERIFICATION
-Auth::routes(['verify' => true]);
-
-Route::get('/home', function () {
-    return view('home');
-})->middleware('verified');
-
-
-//SIGN IN WITH GOOGLE
-Route::get('auth/google',[GoogleAuthController::class, 'redirect'])->name('google.auth');
-Route::get('/auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
+Route::get('request-success', [EmployeeRequestSuccessController::class, 'index'])->name('request-sucess');
 
 
 
-Route::group(['middleware' => 'auth', 'prefix' => 'forms'], function(){
-    Route::get('/students',[StudentFormController::class, 'index'])->name('student');
-    Route::get('/employee',[EmployeeFormController::class, 'index'])->name('employee');
+Route::controller(StudentRequestController::class)->group(function(){
+
+    Route::get('forms/student',[StudentRequestController::class, 'index'])->name('student');
 });

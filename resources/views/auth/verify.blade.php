@@ -26,7 +26,7 @@
                 <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                     @csrf
                     <p class="mt-6 font-paragraph-text  text-black"> {{ __('If you did not receive the email') }}</p>
-                    <button type="submit" class="mt-2 inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-green-900 rounded-md hover:bg-green-500 focus:bg-green-200 focus:text-green-900">{{ __('Click here to request another') }}</button>
+                    <button type="submit" class=" font-nav-text mt-2 inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-green-900 rounded-md hover:bg-green-500 focus:bg-green-200 focus:text-green-900">{{ __('Click here to request another') }}</button>
                 </form>
     
             </div>

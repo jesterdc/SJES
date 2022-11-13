@@ -19,7 +19,7 @@
             <a href="{{ route('student') }}" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Student</a>
           </li>
           <li>
-            <a href="{{ route('employee_form') }}" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Employee</a>
+            <a href="{{ route('employee') }}" class="text-lg block py-2 px-4 rounded-xl hover:text-white hover:bg-green-900">for Employee</a>
           </li>
         </ul>
     </div>

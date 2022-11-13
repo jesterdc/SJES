@@ -7,6 +7,7 @@
         <title>{{ config('app.name') }}</title>
         <link rel="shortcut icon" href="{{ asset('images/mes_logo.png') }}" type="image/x-icon">
         @vite('resources/css/app.css')
+        @livewireStyles
     </head>
     <body class="h-screen">
 
@@ -46,9 +47,9 @@
 
             @auth
             <li>
-                <a href="" class="font-nav-text text-lg block py-2 pr-4 pl-3
+                <p href="" class="font-nav-text text-lg block py-2 pr-4 pl-3
                 text-green-900 rounded hover:bg-green-500 hover:text-white  md:hover:bg-transparent md:border-0
-                md:hover:text-green-500 md:p-0">{{ auth()->user()->name }}</a>
+                md:hover:text-green-500 md:p-0">{{ auth()->user()->name }}</p>
             </li>
             <li>
                 <form action="{{ route('logout') }}" method="post" class="">
@@ -72,7 +73,7 @@
 
 
    
-<footer class="static bottom-0 p-4 bg-transparent sm:p-6">
+<footer class="static w-full bottom-0 p-4 bg-transparent sm:p-6">
     
     <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
@@ -204,7 +205,10 @@
     </div>
 </footer>
 
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>      
+
+    @livewireScripts
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>   
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>   
     </body>
     
 </html>
