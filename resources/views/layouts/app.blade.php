@@ -79,7 +79,7 @@
         <div class="mb-6 md:mb-0">
             <a href="{{ route('home') }}" class="flex items-center">
                 <img src="{{ asset('images/mes_logo.png') }}" class="mr-1 h-10" alt="MES Logo">
-                <span class="self-center text-green-900 text-2xl font-logo-text">MES</span>
+                <span class="self-center text-green-900 text-2xl font-logo-text"><abbr class="decoration-transparent" title="Maligaya Elementary School">MES</abbr></span>
             </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

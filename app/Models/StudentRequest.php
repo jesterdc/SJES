@@ -18,7 +18,10 @@ class StudentRequest extends Model
         'address',
         'birthday',
         'contact',
-        'gender'
+        'gender',
+        'document',
+        'tracking_number',
+        'pin'
     ];
 }
 

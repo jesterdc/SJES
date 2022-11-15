@@ -14,10 +14,14 @@ class EmployeeRequest extends Model
         'middle_name',
         'last_name',
         'employee_id',
+        'document',
         'email',
         'address',
         'birthday',
         'contact',
-        'gender'
+        'gender',
+        'tracking_number',
+        'pin'
     ];
+
 }

@@ -24,6 +24,9 @@ return new class extends Migration
             $table->date("birthday");
             $table->string("contact");
             $table->string("gender");
+            $table->string("document");
+            $table->string("tracking_number");
+            $table->string("pin");
             $table->timestamps();
         });
     }

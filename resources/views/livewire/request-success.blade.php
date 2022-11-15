@@ -10,9 +10,17 @@
             </div>
 
             <div class="mt-10 text-center lg:text-left">
-                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">Request Complete</h2>
+                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">Request Complete!</h2>
 
                 <p class="text-xl mt-6 font-paragraph-text text-black"> {{ request()->name }}  {{ __(', Thank you for requesting!') }}</p>
+
+                                <!-- The text field -->
+                <input type="text" value="{{ request()->number }}" id="myInput" disabled>
+                <input type="text" value="{{ request()->pin }}" id="myInput" disabled>
+
+                <!-- The button used to copy the text -->
+                <button onclick="myFunction()">Copy text</button> 
+
 
 
                  <p class="text-xl font-paragraph-text text-black"> {{ __('Your request has been sent and will be processed.') }}</p>
@@ -25,5 +33,23 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
+} 
+</script>
 
 
