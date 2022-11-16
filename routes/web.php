@@ -63,7 +63,7 @@ Route::controller(EmployeeRequestController::class)->group(function(){
     Route::get('forms/employee',[EmployeeRequestController::class, 'index'])->name('employee');
 });
 
-Route::get('request-success/{name}/{number}', [EmployeeRequestSuccessController::class, 'index'])->name('request-sucess');
+Route::get('request-success/', [EmployeeRequestSuccessController::class, 'index'])->name('request-sucess');
 
 
 

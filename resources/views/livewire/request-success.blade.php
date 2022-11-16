@@ -12,18 +12,29 @@
             <div class="mt-10 text-center lg:text-left">
                 <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">Request Complete!</h2>
 
-                <p class="text-xl mt-6 font-paragraph-text text-black"> {{ request()->name }}  {{ __(', Thank you for requesting!') }}</p>
+            
 
-                                <!-- The text field -->
-                <input type="text" value="{{ request()->number }}" id="myInput" disabled>
-                <input type="text" value="{{ request()->pin }}" id="myInput" disabled>
+                <div class="mx-auto flex flex-col lg:flex-row mt-7"> 
+                    <div class="w-full pr-4">
+                        <div class="mb-4 lg:mb-0">
+                            <label for="first_name" class="font-title-text">Transaction Number</label>
+                            <input type="text" class="text-center text-green-900 font-nav-text w-full py-3 mb-1
+                            bg-green-100 rounded-lg border-white text-sm md:text-lg" value="{{ request()->number }}"disabled>
+                        </div>
+                    </div>
+                    <div class="w-full pr-4">
+                        <div class="mb-4 lg:mb-0">
+                            <label for="first_name" class="font-title-text">Pin</label>
+                            <input type="text" class="text-center text-green-900 font-nav-text w-full py-3 px-5 mb-1
+                            bg-green-100 rounded-lg border-white text-sm md:text-lg" value="{{ request()->pin }}" disabled>
+                        </div>
+                    </div>   
+                </div>
 
-                <!-- The button used to copy the text -->
-                <button onclick="myFunction()">Copy text</button> 
+                <p class="text-xl mt-6 font-paragraph-text text-black"><b class="text-green-900">{{ request()->name }}</b>{{ __(', Thank you for requesting!') }}</p>
+                <p class="text-xl font-paragraph-text text-black"> {{ __('Your request has been sent and will be processed.') }}</p>
 
-
-
-                 <p class="text-xl font-paragraph-text text-black"> {{ __('Your request has been sent and will be processed.') }}</p>
+                 <p class="text-xl mt-6 font-paragraph-text text-black">Please save your <b class="text-green-900">Transaction Number</b> and <b class="text-green-900">Pin</b> to track the status of your request. Mabuhay!</p> 
 
                 
                  <a href="{{ route('home') }}"><button type="submit" class=" font-nav-text mt-8 inline-flex items-center justify-center px-8 py-4 
@@ -34,22 +45,5 @@
     </div>
 </section>
 
-
-<script>
-    function myFunction() {
-  // Get the text field
-  var copyText = document.getElementById("myInput");
-
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-
-  // Alert the copied text
-  alert("Copied the text: " + copyText.value);
-} 
-</script>
 
 
