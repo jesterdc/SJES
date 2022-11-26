@@ -21,7 +21,8 @@ class StudentRequest extends Model
         'gender',
         'document',
         'tracking_number',
-        'pin'
+        'pin',
+        'status'
     ];
 }
 

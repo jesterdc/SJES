@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("document");
             $table->string("tracking_number");
             $table->string("pin");
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }

@@ -6,11 +6,11 @@
     <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-24">
         <div class="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24">
             <div class="flex">
-                <img class=" max-w-md mx-auto" src="{{ asset('images/checked.png') }}" alt="" />
+                <img class="w-full max-w-md mx-auto" src="{{ asset('images/check-list.png') }}" alt="" />
             </div>
 
             <div class="mt-10 text-center lg:text-left">
-                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">Request Complete!</h2>
+                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">Request Status</h2>
 
             
 
@@ -31,11 +31,15 @@
                     </div>   
                 </div>
 
-                <p class="text-xl mt-6 font-paragraph-text text-black"><b class="text-green-900">{{ request()->name }}</b>{{ __(', Thank you for requesting!') }}</p>
-                <p class="text-xl font-paragraph-text text-black"> {{ __('Your request has been sent and will be processed.') }}</p>
+                <p class="text-xl mt-6 md:mb-10 font-paragraph-text text-black"><b class="text-green-900">{{ request()->name }}</b>{{ __(', Thank you for your patience!') }}</p>
+                <p class="text-xl font-paragraph-text text-black"> {{ __('Your request is currently:') }}</p>
 
-                 <p class="text-xl mt-6 font-paragraph-text text-black">Please save your <b class="text-green-900">Transaction Number</b> and <b class="text-green-900">Pin</b> to track the status of your request. Mabuhay!</p> 
-
+                <div class="w-full pr-4">
+                    <div class="mb-4 lg:mb-0">
+                        <input type="text" class="text-center text-green-900 font-nav-text w-full py-3 px-5 mb-1
+                        bg-green-100 rounded-lg border-white text-sm md:text-lg" value="{{ request()->status }}" disabled>
+                    </div>
+                </div> 
                 
                  <a href="{{ route('home') }}"><button type="submit" class=" font-nav-text mt-8 inline-flex items-center justify-center px-8 py-4 
                      text-white transition-all duration-200 text-xl
@@ -44,6 +48,4 @@
         </div>
     </div>
 </section>
-
-
 

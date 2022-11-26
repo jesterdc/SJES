@@ -6,10 +6,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\TrackRequestController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\StudentRequestController;
 use App\Http\Controllers\EmployeeRequestController;
 use App\Http\Controllers\EmployeeRequestSuccessController;
+use App\Http\Controllers\TrackRequestStatus;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +73,10 @@ Route::controller(StudentRequestController::class)->group(function(){
 
     Route::get('forms/student',[StudentRequestController::class, 'index'])->name('student');
 });
+
+Route::controller(TrackRequestController::class)->group(function(){
+
+    Route::get('/track_request',[TrackRequestController::class, 'index'])->name('track.request');
+});
+
+Route::get('track_request/status', [TrackRequestStatus::class, 'index'])->name('request.status');

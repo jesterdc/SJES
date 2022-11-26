@@ -24,10 +24,15 @@
         </ul>
     </div>
     <div>
-      <button class="sm:hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 font-nav-text rounded-full text-white bg-green-200 hover:shadow-xl hover:bg-green-100 focus:outline-none text-lg px-4 py-2.5 
-      text-center inline-flex items-center" type="button"><img src="{{ asset('images/track.png') }}" alt="Track Status" class="max-h-10  sm:hidden"></button>
+      <a href="{{ route('track.request') }}"><abbr title="Track Request"><button class="sm:hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 font-nav-text rounded-full text-white bg-green-200 hover:shadow-xl hover:bg-green-100 focus:outline-none text-lg px-4 py-2.5 
+      text-center inline-flex items-center" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 sm:hidden text-green-900">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+      </svg>
+      </button></abbr></a>
           
-          <button class="font-nav-text text-lg rounded-full hidden sm:block hover:bg-green-200 hover:border-green-200 hover:text-green-900 border-2 border-green-900 p-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 ...">Track Existing Request</button>
+          <a href="{{ route('track.request') }}"><button class="font-nav-text text-lg rounded-full hidden sm:block hover:bg-green-200 hover:border-green-200
+           hover:text-green-900 border-2 border-green-900 p-3 
+           transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 ...">Track Existing Request</button></a>
     </div>
     @endauth
 
@@ -38,21 +43,47 @@
 </div>   
 
 
-<section class="py-10 mt-34 sm:py-16 lg:py-24">
+<section class="py-10 mt-34 sm:py-16 lg:py-24 mt-20">
     <div class="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
         <div class="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20">
+            <div>
+                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">For Students</h2>
+                <p class="mt-4 text-lg font-paragraph-text leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+            </div>
             <div class="pr-12 sm:pr-0">
                 <div class="relative max-w-xs mb-12">
-                    <img class="object-bottom rounded-md" src="https://cdn.rareblocks.xyz/collection/celebration/images/features/4/man-eating-noodles.jpg" alt="" />
+                    <img class="object-bottom rounded-md shadow-2xl max-h-96" src="{{ asset('images/school.jpg') }}" alt="" />
 
-                    <img class="absolute origin-bottom-right scale-75 rounded-md -bottom-12 -right-12" src="https://cdn.rareblocks.xyz/collection/celebration/images/features/4/smiling-businessman.jpg" alt="" />
+                    <img class="absolute origin-bottom-right scale-75 rounded-full -bottom-12 -right-12 shadow-2xl" src="{{ asset('images/students.jpg') }}" alt="" />
                 </div>
             </div>
 
-            <div>
-                <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Grow business with Celebration.</h2>
-                <p class="mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+           
+        </div>
+    </div>
+</section>
+
+
+<section class="py-10 mt-34 sm:py-16 lg:py-24">
+    <div class="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20">
+            <div class="flex flex-col sm:hidden">
+                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">For Employees</h2>
+                <p class="mt-4 text-lg font-paragraph-text leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
             </div>
+            <div class="pr-12 sm:pr-0">
+                <div class="relative max-w-xs mb-12">
+                    <img class="object-bottom rounded-md shadow-2xl max-h-96" src="{{ asset('images/school.jpg') }}" alt="" />
+
+                    <img class="absolute origin-bottom-right scale-75 rounded-full -bottom-12 -right-12 shadow-2xl max-h-50" src="{{ asset('images/faculty.jpg') }}" alt="" />
+                </div>
+            </div>
+
+            <div class="hidden sm:flex sm:flex-col">
+                <h2 class="text-3xl font-logo-text text-green-900 sm:text-4xl lg:text-5xl">For Employees</h2>
+                <p class="mt-4 text-lg font-paragraph-text leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+            </div>
+           
         </div>
     </div>
 </section>

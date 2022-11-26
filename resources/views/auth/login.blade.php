@@ -13,7 +13,7 @@
                 <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
                     {{ session('status') }}
                 </div>
-            @endif
+                @endif
                 <form action="{{ route('login') }}" method="POST" class="mt-8">
                     @csrf
                     <div class="space-y-5">

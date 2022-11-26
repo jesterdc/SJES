@@ -17,7 +17,7 @@
      
         <div class="step-one">
          
-            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-yellow-100 rounded-lg p-10">
+            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-white bg-opacity-70 rounded-lg p-10">
                 <div class="mx-auto container flex justify-between">
                     <div class="text-sm sm:text-2xl text-center border-gray-300 text-green-900 font-logo-text">STEP: 1 of 4</div>
                     <div class="hidden md:flex text-xs font-thin py-1 sm:text-lg text-center sm:py-3 border-gray-300 text-green-900 font-nav-text">Fill out the necessary information</div>
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="flex-col w-full pl-4">
-                        <input type="checkbox" name="terms" id="terms"  wire:model="terms" class="@error('terms') border-red-500 @enderror w-4 h-4 mr-1 text-green-600 focus:outline-lime-900 bg-white border-gray-200 rounded-full" />
+                        <input type="checkbox" name="terms" id="terms"  wire:model="terms" class="@error('terms') border-red-500 @enderror w-4 h-4 mr-1 text-green-600 focus:outline-lime-900 bg-white border-gray-400 rounded-full focus:outline-green-900" />
                     
                         <label for="terms" class=" text-sm sm:text-base font-paragraph-text text-gray-700">I agree to</label>
 
@@ -181,7 +181,7 @@
             
        
         <div class="step-two">
-            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-yellow-100 rounded-lg p-10">
+            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-white bg-opacity-70 rounded-lg p-10">
                 <div class="mx-auto container flex justify-between">
                     <div class="text-sm sm:text-2xl text-center border-gray-300 text-green-900 font-logo-text">STEP: 2 of 4</div>
                     <div class="text-xs font-thin  py-1 sm:text-lg text-center sm:py-3 border-gray-300 text-green-900 font-logo-text">Contact Details</div>
@@ -251,7 +251,7 @@
             
     
         <div class="step-three">
-            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-yellow-100 rounded-lg p-10">
+            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-white bg-opacity-70 rounded-lg p-10">
                 <div class="mx-auto container flex justify-between">
                     <div class="text-sm sm:text-2xl text-center border-gray-300 text-green-900 font-logo-text">STEP: 3 of 4</div>
                     <div class="text-xs font-thin  py-1 sm:text-lg text-center sm:py-3 border-gray-300 text-green-900 font-logo-text">Student Details</div>
@@ -319,7 +319,7 @@
             
     
         <div class="step-four">
-            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-yellow-100 rounded-lg p-10">
+            <div class="relative flex flex-col mb-10 w-80 m-auto shadow-lg sm:w-auto sm:ml-28 sm:mr-28 bg-white bg-opacity-70 rounded-lg p-10">
                     <div class="mx-auto container flex justify-between">
                         <div class="text-sm sm:text-2xl text-center border-gray-300 text-green-900 font-logo-text">STEP: 4 of 4</div>
                         <div class="hidden md:flex text-xs font-thin py-1 sm:text-lg text-center sm:py-3 border-gray-300 text-green-900 font-nav-text">Please review the information that you input</div>
@@ -405,7 +405,7 @@
                      @endif
                      
                      @if ($currentStep == 4)
-                          <button type="submit" class="px-4 text-sm font-nav-text rounded-full py-2 sm:px-8  sm:text-lg  bg-lime-600 text-white hover:bg-lime-400">Submit</button>
+                          <button type="submit" class="px-4 text-sm font-nav-text rounded-full py-2 sm:px-8  sm:text-lg bg-teal-900 text-white hover:bg-teal-500">Submit</button>
                      @endif
                          
                         

@@ -21,7 +21,8 @@ class EmployeeRequest extends Model
         'contact',
         'gender',
         'tracking_number',
-        'pin'
+        'pin',
+        'status'
     ];
 
 }
