@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Livewire\TrackRequestForm;
 use App\Models\EmployeeRequest;
 use Closure;
 use Illuminate\Http\Request;
@@ -18,8 +19,7 @@ class CheckReq
     public function handle(Request $request, Closure $next)
     {
 
-        $user = EmployeeRequest::where('tracking_number');
-            if ($user === null) {
+            if (!$request->session()->exists('user')) {
                     return redirect()->route('home');
             }
 

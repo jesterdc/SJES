@@ -50,4 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         return str_ends_with($this->email, '@admin.com') && $this->hasVerifiedEmail(); 
     }
+
+
+    public function requests()
+    {
+
+        return $this->hasOne(StudentRequest::class);
+
+    }
 }

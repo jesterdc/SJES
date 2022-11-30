@@ -5,7 +5,7 @@
 
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl font-logo-text leading-tight text-green-900 sm:text-4xl lg:text-5xl">Track Status</h2>
+            <h2 class="text-3xl font-logo-text leading-tight text-blue-900 sm:text-4xl lg:text-5xl">Track Status</h2>
         </div>
         @if(session()->has('message'))
         <div class="text-md font-nav-text text-white mx-auto bg-red-600 rounded-2xl py-3 px-3 md:max-w-2xl text-center mt-5">
@@ -34,6 +34,7 @@
                                         id="tracking_num"
                                         placeholder="Enter your transaction number"
                                         wire:model="tracking_num"
+                                        autocomplete="off"
                                         class="text-center font-paragraph-text block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all placeholder:text-left duration-200 bg-white border border-gray-200 rounded-md focus:outline-none"
                                     />
     
@@ -63,6 +64,7 @@
                                         id="pin"
                                         placeholder="Enter your pin"
                                         wire:model="pin"
+                                        autocomplete="off"
                                         class="text-center font-paragraph-text block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 placeholder:text-left transition-all duration-200 bg-white border border-gray-200 rounded-md"
                                     />
                                 </div>
@@ -78,7 +80,7 @@
                                     </div>
 
                                     <button type="submit" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200
-                                     bg-green-900 rounded-md hover:bg-green-500">
+                                     bg-blue-900 rounded-md hover:bg-blue-500">
                                         Track
                                     </button>
                                 </div>

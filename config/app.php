@@ -194,6 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
@@ -207,6 +208,7 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,

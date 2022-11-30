@@ -24,5 +24,11 @@ class StudentRequest extends Model
         'pin',
         'status'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 

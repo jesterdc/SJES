@@ -3,15 +3,18 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TrackRequestStatus;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\TrackRequestController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Contact\ContactController;
+use App\Http\Controllers\RequestSuccessController;
 use App\Http\Controllers\StudentRequestController;
-use App\Http\Controllers\EmployeeRequestController;
-use App\Http\Controllers\EmployeeRequestSuccessController;
-use App\Http\Controllers\TrackRequestStatus;
+use App\Http\Controllers\Fallback\FallbackController;
+use App\Http\Livewire\TrackRequestForm;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,9 @@ use App\Http\Controllers\TrackRequestStatus;
 
 Route::get('/', function(){
     return view('home');
-});
+})->name('index');
+
+Auth::routes();
 
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -55,17 +60,7 @@ Route::get('/about', function(){
 })->name('about');
 
 
-Route::get('/contact', function(){
-    return view('contact');
-})->name('contact');
-
-
-Route::controller(EmployeeRequestController::class)->group(function(){
-
-    Route::get('forms/employee',[EmployeeRequestController::class, 'index'])->name('employee');
-});
-
-Route::get('request-success/', [EmployeeRequestSuccessController::class, 'index'])->name('request-sucess');
+Route::get('request-success/', [RequestSuccessController::class, 'index'])->name('request-sucess');
 
 
 
@@ -79,4 +74,10 @@ Route::controller(TrackRequestController::class)->group(function(){
     Route::get('/track_request',[TrackRequestController::class, 'index'])->name('track.request');
 });
 
-Route::get('track_request/status', [TrackRequestStatus::class, 'index'])->name('request.status');
+Route::get('track_request/status', [TrackRequestStatus::class, 'index', TrackRequestForm::class, 'submit'])->name('request.status');
+
+Route::get('/contact',[ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::fallback(FallbackController::class);
+

@@ -5,6 +5,10 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\StudentRequest;
+use App\Mail\RequestSuccessMail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 class StudentMultiStepForm extends Component
@@ -62,14 +66,14 @@ class StudentMultiStepForm extends Component
                 'middle_name'=>'required|regex:/^[\pL\s\-]+$/u|max:46',
                 'last_name'=>'required|regex:/^[\pL\s\-]+$/u|max:46',
                 'gender'=>'required',
-                'birthday'=>'required',
+                'birthday'=>'required|before:today',
                 'terms'=>'accepted'
             ]);
         }
         elseif($this->currentStep == 2){
               $this->validate([
                 'email'=>'required|email|max:62',
-                'contact'=>'required|integer',
+                'contact'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:11',
                 'address'=>'required|string|max:255'
               ]);
         }
@@ -117,6 +121,7 @@ class StudentMultiStepForm extends Component
         $tracking_number = generate();
 
         $values = array(
+            "user_id" =>Auth::user()->id,
             "first_name"=>$this->first_name,
             "middle_name"=>$this->middle_name,
             "last_name"=>$this->last_name,
@@ -132,12 +137,22 @@ class StudentMultiStepForm extends Component
             "pin"=>$pin
         );
 
+        $u_id = Auth::user()->id;
 
-        StudentRequest::insert($values);
-        $data= $tracking_number;
-        $name= $this->first_name;
-        $p = $pin;
-        return redirect()->route('request-sucess',['name'=> $name,'number'=>$data, 'pin'=>$p]);
+        if(DB::table('student_requests')->where('user_id', $u_id)->exists()){
+
+            return redirect()->back()->with('message', 'Request Invalid, You still have a pending request.');
+
+        }
+        else{
+            StudentRequest::insert($values);
+            $email = $this->email;
+            $data= $tracking_number;
+            $name= $this->first_name;
+            $p = $pin;
+            Mail::to($email)->send(new RequestSuccessMail($data, $name, $p));
+            return redirect()->route('request-sucess',['name'=> $name,'number'=>$data, 'pin'=>$p]);
+        }
 
         
     }
