@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UsersResource\Pages;
+namespace App\Filament\Resources\CompletedRequestsResource\Pages;
 
-use App\Filament\Resources\UsersResource;
+use App\Filament\Resources\CompletedRequestsResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUsers extends EditRecord
+class EditCompletedRequests extends EditRecord
 {
-    protected static string $resource = UsersResource::class;
+    protected static string $resource = CompletedRequestsResource::class;
 
     protected function getActions(): array
     {

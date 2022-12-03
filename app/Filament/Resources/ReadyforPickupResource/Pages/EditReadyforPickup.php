@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UsersResource\Pages;
+namespace App\Filament\Resources\ReadyforPickupResource\Pages;
 
-use App\Filament\Resources\UsersResource;
+use App\Filament\Resources\ReadyforPickupResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUsers extends EditRecord
+class EditReadyforPickup extends EditRecord
 {
-    protected static string $resource = UsersResource::class;
+    protected static string $resource = ReadyforPickupResource::class;
 
     protected function getActions(): array
     {

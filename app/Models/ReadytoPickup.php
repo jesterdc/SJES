@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Client\PendingRequest;
 
-class StudentRequest extends Model
+class ReadytoPickup extends Model
 {
     use HasFactory;
 
@@ -25,15 +24,4 @@ class StudentRequest extends Model
         'pin',
         'status'
     ];
-
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function processing(){
-        return $this->belongsToMany(ProcessingRequests::class);
-    }
 }
-

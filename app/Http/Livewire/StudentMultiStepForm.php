@@ -139,11 +139,10 @@ class StudentMultiStepForm extends Component
 
         $u_id = Auth::user()->id;
 
-        if(DB::table('student_requests')->where('user_id', $u_id)->exists()){
-
+        if(DB::table('student_requests')->where('user_id', $u_id)->exists() || DB::table('processing_requests')->where('user_id', $u_id)->exists() || DB::table('readyto_pickups')->where('user_id', $u_id)->exists()){
             return redirect()->back()->with('message', 'Request Invalid, You still have a pending request.');
-
         }
+        
         else{
             StudentRequest::insert($values);
             $email = $this->email;

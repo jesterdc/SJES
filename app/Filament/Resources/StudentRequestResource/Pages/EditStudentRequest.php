@@ -2,9 +2,15 @@
 
 namespace App\Filament\Resources\StudentRequestResource\Pages;
 
-use App\Filament\Resources\StudentRequestResource;
+use Carbon\Carbon;
 use Filament\Pages\Actions;
+use App\Models\ProcessingRequests;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\StudentRequestResource;
+use Illuminate\Database\Eloquent\Model;
 
 class EditStudentRequest extends EditRecord
 {
@@ -15,5 +21,12 @@ class EditStudentRequest extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+
+        $id = Auth::user()->id;
+        dd($id);
     }
 }

@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Client\PendingRequest;
 
-class StudentRequest extends Model
+class ProcessingRequests extends Model
 {
     use HasFactory;
 
@@ -26,14 +25,7 @@ class StudentRequest extends Model
         'status'
     ];
 
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function processing(){
-        return $this->belongsToMany(ProcessingRequests::class);
+    public function requests(){
+        return $this->belongsToMany(StudentRequest::class);
     }
 }
-

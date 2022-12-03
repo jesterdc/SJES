@@ -18,6 +18,7 @@ module.exports = {
       'paragraph-text':['Quicksand', 'san-serif'],
       'title-text':['Poppins', 'sans-serif']
     },
+    
 
     colors: { 
       danger: colors.rose,

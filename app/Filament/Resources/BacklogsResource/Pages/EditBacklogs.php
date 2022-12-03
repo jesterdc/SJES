@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UsersResource\Pages;
+namespace App\Filament\Resources\BacklogsResource\Pages;
 
-use App\Filament\Resources\UsersResource;
+use App\Filament\Resources\BacklogsResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUsers extends EditRecord
+class EditBacklogs extends EditRecord
 {
-    protected static string $resource = UsersResource::class;
+    protected static string $resource = BacklogsResource::class;
 
     protected function getActions(): array
     {

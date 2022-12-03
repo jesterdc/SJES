@@ -2,25 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
+
 use App\Models\User;
 use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UsersResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\UsersResource\RelationManagers;
+
 
 class UsersResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form
     {
@@ -28,7 +25,7 @@ class UsersResource extends Resource
             ->schema([
                 Card::make()->schema([
                     TextInput::make('name')->required(),
-                    TextInput::make('email')->required()
+                    TextInput::make('email')->required(),
                 ])
             ]);
     }
@@ -38,7 +35,7 @@ class UsersResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
             ])
@@ -59,7 +56,7 @@ class UsersResource extends Resource
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
