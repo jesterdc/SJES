@@ -12,7 +12,7 @@
                    
                 </div>
                 <div>
-                    <img class="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/1/hero-img.png" alt="" />
+                    <img class="w-full" src="{{ asset('images/hero-img.png') }}" alt="" />
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
         
                         </div>
                     </div>
-                    <div class="flex items-center justify-center mt-5">
+                    <div class="flex items-center justify-center mt-9">
                     <ul class="mb-8 space-y-4 text-center text-gray-700 font-paragraph-text">
                         <li class="flex items-center space-x-3">
                             <!-- Icon -->

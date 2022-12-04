@@ -11,7 +11,6 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class UsersOverview extends BaseWidget
 {
-    
     protected function getCards(): array
     {
         return [
