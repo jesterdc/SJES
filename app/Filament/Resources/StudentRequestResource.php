@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use Closure;
 use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
@@ -12,14 +11,9 @@ use Filament\Resources\Resource;
 use App\Models\ProcessingRequests;
 use Illuminate\Support\Facades\DB;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Notifications\Notification;
-use Filament\Tables\Columns\BadgeColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Filament\Forms\Components\DateTimePicker;
 use App\Filament\Resources\StudentRequestResource\Pages;
-use Illuminate\Database\Console\Migrations\StatusCommand;
 
 class StudentRequestResource extends Resource
 {
@@ -27,26 +21,26 @@ class StudentRequestResource extends Resource
 
     protected static ?string $navigationLabel = 'Pending Requests';
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationGroup = 'Requests';
+    protected static ?string $navigationGroup = 'Requests Management';
     protected static ?int $navigationSort = 1;
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                     Card::make()->schema([
-                        DateTimePicker::make('created_at')->disabled()->label('Date Requested')->displayFormat('F j, Y / H:i A')->columnSpan(2)->disabled(),
-                        TextInput::make('first_name')->disabled(),
-                        TextInput::make('middle_name')->disabled(),
-                        TextInput::make('last_name')->disabled(),
-                        TextInput::make('lrn')->disabled()->label('LRN'),
-                        TextInput::make('email')->disabled(),
-                        TextInput::make('contact')->disabled(),
-                        TextInput::make('birthday')->disabled(),
-                        TextInput::make('gender')->disabled(),
+                        DateTimePicker::make('created_at')->label('Date Requested')->displayFormat('F j, Y / H:i A')->columnSpan(2)->required(),
+                        TextInput::make('first_name')->required(),
+                        TextInput::make('middle_name')->required(),
+                        TextInput::make('last_name')->required(),
+                        TextInput::make('lrn')->required()->label('LRN'),
+                        TextInput::make('email')->required(),
+                        TextInput::make('contact')->required(),
+                        TextInput::make('birthday')->required(),
+                        TextInput::make('gender')->required(),
                     ])->columns(2),
                     Card::make()->schema([
-                        TextInput::make('tracking_number')->disabled(),
-                        TextInput::make('pin')->disabled(),
+                        TextInput::make('tracking_number')->required(),
+                        TextInput::make('pin')->required(),
                     ])->columns(2)
             ]);
         

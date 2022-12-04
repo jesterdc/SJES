@@ -11,12 +11,14 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class UsersOverview extends BaseWidget
 {
+    
     protected function getCards(): array
     {
         return [
             Card::make('All Users', User::all()->count()),
             Card::make('Total Requests', StudentRequest::all()->count() + ProcessingRequests::all()->count() + ReadytoPickup::all()->count()),
             Card::make('Requests on Process', ProcessingRequests::all()->count()),
+            Card::make('Documents Ready For Pickup', ReadytoPickup::all()->count()),
         ];
     }
 }

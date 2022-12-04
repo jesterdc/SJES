@@ -40,7 +40,7 @@ class GoogleAuthController extends Controller
             }
         
         } catch (\Throwable $th){
-            dd('Something went wrong! '. $th->getMessage());
+            return redirect()->route('login')->with('message', 'Email already taken');
         }
     }
 }

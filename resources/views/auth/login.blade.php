@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+<div class="text-md font-nav-text text-white mx-auto bg-red-600 rounded-2xl py-3 px-3 md:max-w-2xl text-center mt-5 mb-5">
+{{ session()->get('message') }}
+</div>
+@endif
 
 <section class=" mt-20 mb-20 sm:mt-0">
     <div class="grid grid-cols-1">

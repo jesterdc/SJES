@@ -29,7 +29,7 @@ class ProcessingRequestsResource extends Resource
     protected static ?string $model = ProcessingRequests::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark';
-    protected static ?string $navigationGroup = 'Requests';
+    protected static ?string $navigationGroup = 'Requests Management';
     protected static ?int $navigationSort = 2;
 
 
@@ -88,7 +88,7 @@ class ProcessingRequestsResource extends Resource
                         "created_at"=>Carbon::now(),
                         "tracking_number"=>$record->tracking_number,
                         "pin"=>$record->pin,
-                        "status"=>1,
+                        "status"=>2,
                     );
 
                     $tr = $record->tracking_number;

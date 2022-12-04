@@ -3,21 +3,17 @@
 namespace App\Filament\Resources;
 
 use Carbon\Carbon;
-use Filament\Forms;
 use Filament\Tables;
 use Filament\Resources\Form;
 use App\Models\ReadytoPickup;
 use Filament\Resources\Table;
-use App\Models\ReadyforPickup;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\DB;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DateTimePicker;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ReadyforPickupResource\Pages;
-use App\Filament\Resources\ReadyforPickupResource\RelationManagers;
+
 use App\Models\Backlogs;
 use App\Models\CompletedRequests;
 
@@ -26,7 +22,7 @@ class ReadyforPickupResource extends Resource
     protected static ?string $model = ReadytoPickup::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bell';
-    protected static ?string $navigationGroup = 'Requests';
+    protected static ?string $navigationGroup = 'Requests Management';
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form

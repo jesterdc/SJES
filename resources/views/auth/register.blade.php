@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session()->has('message'))
+<div class="text-md font-nav-text text-white mx-auto bg-red-600 rounded-2xl py-3 px-3 md:max-w-2xl text-center mt-5 mb-5">
+{{ session()->get('message') }}
+</div>
+@endif
 
 <section class="bg-transparent">
     <div class="grid">
@@ -120,10 +125,17 @@
                                           <!-- Modal body -->
                                           <div class="p-6 space-y-6">
                                               <p class="font-paragraph-text text-base leading-relaxed text-gray-800">
-                                                  With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                                              </p>
-                                              <p class="font-paragraph-text text-base leading-relaxed text-gray-800">
-                                                  The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
+                                                When you create an account with Us, You must provide us information that is accurate, complete, and
+                                                current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate
+                                                termination of your account on our Service. <br>
+                                                You are responsible for safeguarding the password that You use to access the service and for any activities
+                                                or actions under your password, whether your password is with our Service or a third-party Social Media
+                                                Service. <br>
+                                                You agree not to disclose your password to any third party. You must notify us immediately upon becoming
+                                                aware of any breach of security or unauthorized use of Your account. <br>
+                                                You may not use as a username the name of another person or entity or that is not lawfully available for
+                                                use, a name or trademark that is subject to any rights of another person or entity other than you without
+                                                appropriate authorization, or a name that is otherwise offensive, vulgar or obscene.
                                               </p>
                                           </div>
 
@@ -148,11 +160,10 @@
                                         <!-- Modal body -->
                                         <div class="p-6 space-y-6">
                                             <p class="font-paragraph-text text-base leading-relaxed text-gray-800">
-                                                With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.
-                                            </p>
-                                            <p class="font-paragraph-text text-base leading-relaxed text-gray-800">
-                                                The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally affect them.
-                                            </p>
+                                                All employees and personnel of the school shall maintain the confidentiality and secrecy of all personal data that come to their 
+                                                knowledge and possession, even after resignation, termination of contract, or other contractual relations. Personal data under 
+                                                the custody of the school shall be disclosed only pursuant to a lawful purpose, and to authorized recipients of such data.
+                                             </p>
                                         </div>
                                     </div>
                                 </div>
