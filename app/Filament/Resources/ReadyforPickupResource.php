@@ -26,7 +26,7 @@ class ReadyforPickupResource extends Resource
     protected static ?string $model = ReadytoPickup::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bell';
-    protected static ?string $navigationGroup = 'Requests Management';
+    protected static ?string $navigationGroup = 'Requests';
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -107,7 +107,7 @@ class ReadyforPickupResource extends Resource
                         "birthday"=>$record->birthday,
                         "created_at"=>Carbon::now(),
                         "tracking_number"=>$record->tracking_number,
-                        "pin"=>$record->tracking_number,
+                        "pin"=>$record->pin,
                         "status"=>1,
                     );
                     Backlogs::insert($values);

@@ -27,7 +27,7 @@ class StudentRequestResource extends Resource
 
     protected static ?string $navigationLabel = 'Pending Requests';
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationGroup = 'Requests Management';
+    protected static ?string $navigationGroup = 'Requests';
     protected static ?int $navigationSort = 1;
     public static function form(Form $form): Form
     {
@@ -83,7 +83,7 @@ class StudentRequestResource extends Resource
                         "birthday"=>$record->birthday,
                         "created_at"=>Carbon::now(),
                         "tracking_number"=>$record->tracking_number,
-                        "pin"=>$record->tracking_number,
+                        "pin"=>$record->pin,
                         "status"=>1,
                     );
                     ProcessingRequests::insert($values);

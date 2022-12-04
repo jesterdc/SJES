@@ -1,7 +1,10 @@
 <?php
 
+use App\Mail\RequestSuccessMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\TrackRequestForm;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrackRequestStatus;
 use App\Http\Controllers\Auth\LoginController;
@@ -9,11 +12,10 @@ use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\TrackRequestController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\RequestSuccessController;
 use App\Http\Controllers\StudentRequestController;
+use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Fallback\FallbackController;
-use App\Http\Livewire\TrackRequestForm;
 
 
 /*
@@ -60,13 +62,13 @@ Route::get('/about', function(){
 })->name('about');
 
 
-Route::get('request-success/', [RequestSuccessController::class, 'index'])->name('request-sucess');
+Route::get('request-success/', [RequestSuccessController::class, 'index'])->name('request-sucess')->middleware('verified');
 
 
 
 Route::controller(StudentRequestController::class)->group(function(){
 
-    Route::get('forms/student',[StudentRequestController::class, 'index'])->name('student');
+    Route::get('forms/student',[StudentRequestController::class, 'index'])->name('student')->middleware('verified');
 });
 
 Route::controller(TrackRequestController::class)->group(function(){

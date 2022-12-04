@@ -5,13 +5,16 @@ namespace App\Filament\Resources;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Tables;
+use App\Mail\PickUpMail;
 use Filament\Resources\Form;
+use App\Models\ReadytoPickup;
 use Filament\Resources\Table;
 use App\Models\StudentRequest;
 use Filament\Resources\Resource;
 use App\Models\ProcessingRequests;
 use Illuminate\Support\Facades\DB;
 use Filament\Forms\Components\Card;
+use Illuminate\Support\Facades\Mail;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -20,14 +23,13 @@ use Filament\Forms\Components\DateTimePicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProcessingRequestsResource\Pages;
 use App\Filament\Resources\ProcessingRequestsResource\RelationManagers;
-use App\Models\ReadytoPickup;
 
 class ProcessingRequestsResource extends Resource
 {
     protected static ?string $model = ProcessingRequests::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark';
-    protected static ?string $navigationGroup = 'Requests Management';
+    protected static ?string $navigationGroup = 'Requests';
     protected static ?int $navigationSort = 2;
 
 
@@ -85,10 +87,16 @@ class ProcessingRequestsResource extends Resource
                         "birthday"=>$record->birthday,
                         "created_at"=>Carbon::now(),
                         "tracking_number"=>$record->tracking_number,
-                        "pin"=>$record->tracking_number,
+                        "pin"=>$record->pin,
                         "status"=>1,
                     );
+
+                    $tr = $record->tracking_number;
+                    $name = $record->first_name;
+                    $p = $record->pin;
+
                     ReadytoPickup::insert($values);
+                    Mail::to($record->email)->send(new PickUpMail($tr, $name, $p));
                     DB::table('processing_requests')->delete($record->id);
                 })
                 ->requiresConfirmation()

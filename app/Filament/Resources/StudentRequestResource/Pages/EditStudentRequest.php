@@ -25,8 +25,6 @@ class EditStudentRequest extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-
-        $id = Auth::user()->id;
-        dd($id);
+        return $this->getResource()::getUrl('index');
     }
 }
